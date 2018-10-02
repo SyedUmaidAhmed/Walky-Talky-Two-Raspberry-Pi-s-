@@ -1,0 +1,23 @@
+Just Check these commands on your terminal. You'll be able to send the voice from one raspberry pi to another.
+
+arecord --device=hw:1,0 -f dat | ssh -C pi@192.168.0.105 aplay --device=plughw:1,0 -f dat
+
+
+
+arecord --device=hw:1,0 --duration=10 --format S16_LE --rate 44100 -V mono -c1 -f dat | ssh -C pi@192.168.0.105 aplay --device=plughw:1,0 -f dat
+
+
+
+# Put the default password on a black screen
+username: pi
+password: raspberry
+
+
+
+arecord -D plughw:1,0 -f dat | ssh -C pi@192.168.0.105 aplay -f dat
+
+
+
+Note:
+
+Change the IP address. Write the IP of that Raspberry pi on which you want to send the voice signal.
